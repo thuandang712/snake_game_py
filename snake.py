@@ -29,6 +29,13 @@ class Snake:
     def extend(self):
         self.add_dot(self.dots[-1].position())
 
+    def reset(self):
+        for dot in self.dots:
+            dot.goto(1000, 1000)
+        self.dots.clear()
+        self.create_snake()
+        self.head = self.dots[0]
+
     def move(self):
         # loop in range start=2 -> 1 -> stop=0, step = -1
         for dot in range(len(self.dots) - 1, 0, -1):
